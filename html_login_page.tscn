@@ -1,0 +1,148 @@
+[gd_scene load_steps=9 format=3 uid="uid://bj3vqpugn43sj"]
+
+[ext_resource type="Script" uid="uid://cp4k5a781ub2w" path="res://login_page.gd" id="1_88kfp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_okmu8"]
+content_margin_left = 20.0
+content_margin_top = 40.0
+content_margin_right = 20.0
+content_margin_bottom = 40.0
+bg_color = Color(0.101961, 0.101961, 0.101961, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_okmu8"]
+font_size = 30
+outline_size = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ryb83"]
+content_margin_left = 15.0
+content_margin_top = 15.0
+content_margin_right = 15.0
+content_margin_bottom = 15.0
+bg_color = Color(0.2, 0.2, 0.2, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hv8tm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ooamp"]
+region = Rect2(23, 27, 16, 16)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hv8tm"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.298039, 0.686275, 0.313726, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ooamp"]
+
+[node name="HTMLLoginPage" type="ColorRect" node_paths=PackedStringArray("line_edit")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 0, 0, 1)
+script = ExtResource("1_88kfp")
+line_edit = NodePath("CenterContainer/Panel/body/main/LineEdit")
+login_complete_scene = "uid://cnykvp34hbhcl"
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="PanelContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_okmu8")
+
+[node name="body" type="VBoxContainer" parent="CenterContainer/Panel"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Label" type="Label" parent="CenterContainer/Panel/body"]
+layout_mode = 2
+text = "Login"
+label_settings = SubResource("LabelSettings_okmu8")
+horizontal_alignment = 1
+
+[node name="main" type="VBoxContainer" parent="CenterContainer/Panel/body"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="address" type="Label" parent="CenterContainer/Panel/body/main"]
+layout_mode = 2
+text = "address/email"
+
+[node name="LineEdit" type="LineEdit" parent="CenterContainer/Panel/body/main"]
+custom_minimum_size = Vector2(300, 40)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_ryb83")
+placeholder_text = "Password"
+keep_editing_on_text_submit = true
+virtual_keyboard_type = 6
+clear_button_enabled = true
+select_all_on_focus = true
+secret = true
+
+[node name="CheckBox" type="CheckBox" parent="CenterContainer/Panel/body/main"]
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0.770463, 0.545354, 0.133359, 1)
+theme_override_colors/font_hover_color = Color(0.768627, 0.545098, 0.133333, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hv8tm")
+theme_override_icons/unchecked = SubResource("AtlasTexture_ooamp")
+text = "Remember me"
+flat = true
+
+[node name="Button" type="Button" parent="CenterContainer/Panel/body/main"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.509664, 0.258011, 0.674091, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_hv8tm")
+text = "Login"
+
+[node name="HSeparator2" type="HSeparator" parent="CenterContainer/Panel/body"]
+visible = false
+layout_mode = 2
+
+[node name="google button" type="Button" parent="CenterContainer/Panel/body"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.509664, 0.258011, 0.674091, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_hv8tm")
+text = "google Login"
+
+[node name="HSeparator" type="HSeparator" parent="CenterContainer/Panel/body"]
+layout_mode = 2
+
+[node name="register" type="Button" parent="CenterContainer/Panel/body"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.768627, 0.545098, 0.133333, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.509664, 0.258011, 0.674091, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ooamp")
+text = "Don't have an account, Register"
+flat = true
+
+[connection signal="pressed" from="CenterContainer/Panel/body/main/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CenterContainer/Panel/body/google button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CenterContainer/Panel/body/register" to="." method="_on_register_pressed"]
