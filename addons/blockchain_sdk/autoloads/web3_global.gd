@@ -20,5 +20,5 @@ func _ready():
 	add_child(wallet_manager)
 	add_child(contract_manager)
 	
-	if OS.has_feature("web"):
-		Globals.mobile = wallet_manager.window.mobile
+	#if OS.has_feature("web"):
+		#Globals.mobile = wallet_manager.window.mobile

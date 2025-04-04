@@ -27,6 +27,7 @@ static func _get_exist_file( info: MHEPExportInfo ) -> String:
 			
 	return ""
 
+
 static func _get_content( path: String ) -> String:
 	var file = FileAccess.open( path, FileAccess.READ)
 	var content = file.get_as_text()

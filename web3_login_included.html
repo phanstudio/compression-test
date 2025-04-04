@@ -415,20 +415,6 @@ const engine = new Engine(GODOT_CONFIG);
 			  const googleSignInButton = document.getElementById('google-signin-button');
 			  console.log('Page origin:', window.location.origin);
 		  
-			  google.accounts.id.initialize({
-				client_id: '1080764757645-9hs3ro2ilha96ho77ours6tehq17h155.apps.googleusercontent.com',
-				callback: (response) => {
-				  console.log('Google Credential:', response.credential);
-				  if (window.godotReceiveCredential) {
-					window.godotReceiveCredential(response.credential); // Safe callback
-				  } else {
-					console.warn('Godot credential callback not defined.');
-				  }
-				  // Optionally hide login UI
-				  // document.getElementById('login-container').style.display = 'none';
-				}
-			  });
-		  
 			  google.accounts.id.renderButton(
 				googleSignInButton,
 				{ theme: 'filled_black', size: 'large', width: 260, text: 'signin_with' }
