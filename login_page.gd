@@ -253,9 +253,8 @@ func _ready() -> void: # add login with passpharse later
 		console = JavaScriptBridge.get_interface('console')
 		window.godotReceiveCredential = receiveCredential
 		window.godotReceiveEmailPassword = godotReceiveEmailPassword
-		print(FileAccess.file_exists(SaveLoader.save_path))
 		if not FileAccess.file_exists(SaveLoader.save_path):
-			#show_login()
+			show_login()
 			pass
 
 # Call this to show login module
@@ -277,8 +276,7 @@ func encryipt_and_store(key, info):
 	#Crypto.new() # use to increase security
 	info["address"] = wallet.address
 	info["secrets"] = wallet.encryptSync(key)
-	print(info)
-	#SaveLoader.save_with_key(key, info)
+	SaveLoader.save_with_key(key, info)
 	# initalize all the contracts here for later calling
 	pass
 
